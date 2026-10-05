@@ -1,0 +1,71 @@
+{
+  "source": "esp32",
+  "sample_rate": 16000,
+  "esp32": {
+    "port": "auto",
+    "baud": 115200,
+    "skip_s": 0.5,
+    "port1_shift_samples": 0,
+    "gain_db": 0
+  },
+  "alsa": {
+    "device": "auto",
+    "channels": 8,
+    "channel_map": "auto",
+    "format": "S32_LE",
+    "bits": 24
+  },
+  "array": {
+    "radius_m": 0.05,
+    "mic_angles_deg": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "speed_of_sound": 343.0
+  },
+  "stft": {
+    "frame": 512,
+    "hop": 256
+  },
+  "preprocess": {
+    "highpass_hz": 100,
+    "noise_reduction": true,
+    "nr_floor_db": -14,
+    "equalize_mics": true
+  },
+  "doa": {
+    "band_hz": [
+      300,
+      4000
+    ],
+    "angle_step_deg": 2,
+    "smoothing": 0.9,
+    "vad_margin_db": 6,
+    "min_confidence": 0.12
+  },
+  "beamformer": {
+    "method": "mvdr",
+    "diag_loading": 0.05,
+    "cov_smoothing": 0.98,
+    "max_slew_deg_per_s": 240,
+    "hysteresis_deg": 6
+  },
+  "output": {
+    "playback": false,
+    "device": "default",
+    "gain_db": 0,
+    "record_wav": ""
+  },
+  "dashboard": {
+    "host": "0.0.0.0",
+    "port": 8080
+  },
+  "sim": {
+    "target_deg": 60,
+    "interferer_deg": 200,
+    "snr_db": 15,
+    "move": true
+  }
+}
